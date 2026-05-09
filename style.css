@@ -1,0 +1,155 @@
+/* style.css */
+body {
+    margin: 0;
+    padding: 0;
+    /* Fondo nocturno romántico */
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    overflow: hidden;
+    font-family: 'Dancing Script', cursive;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+#flower-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.message-container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 30px 40px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(255, 179, 198, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 179, 198, 0.3);
+    max-width: 80%;
+    opacity: 0; /* Oculto al inicio */
+}
+
+.message-text {
+    font-size: 3.5rem;
+    line-height: 1.5;
+    text-shadow: 0 0 10px rgba(255, 179, 198, 0.6), 0 0 20px rgba(255, 179, 198, 0.4);
+    color: #fff0f3;
+    margin: 0;
+}
+
+.question-text {
+    display: block;
+    font-size: 0.85em;
+    color: #ffb3c6;
+    margin-top: 15px;
+    text-shadow: 0 0 15px rgba(255, 179, 198, 0.8);
+}
+
+/* Estilos de las Flores (Claveles) */
+.clavel-wrapper {
+    position: absolute;
+    bottom: -10px; /* Esconder un poco la base del tallo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stem {
+    position: absolute;
+    bottom: 0;
+    width: 8px;
+    height: 0; /* Se animará con JS */
+    background: linear-gradient(to right, #1b4332, #2d6a4f, #1b4332);
+    border-radius: 4px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.4);
+}
+
+.head {
+    position: absolute;
+    top: 0; /* Siempre en la punta del tallo */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pétalo del clavel */
+.petal {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    /* Colores característicos del clavel rojo/rosado intenso */
+    background: radial-gradient(circle at 30% 30%, #ff4d6d, #c9184a, #800f2f);
+    /* Forma irregular y orgánica */
+    border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+    box-shadow: inset -2px -2px 6px rgba(0,0,0,0.3), 0 0 5px rgba(0,0,0,0.1);
+    opacity: 0; /* oculto al inicio */
+}
+
+/* Hojas del tallo */
+.leaf {
+    position: absolute;
+    width: 45px;
+    height: 25px;
+    background: linear-gradient(to right, #2d6a4f, #40916c);
+    opacity: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Partículas del fondo */
+.particle {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* MEDIA QUERIES PARA CELULARES Y PANTALLAS PEQUEÑAS */
+@media (max-width: 768px) {
+    .message-container {
+        padding: 20px 15px;
+        width: 90%;
+        max-width: 95%;
+    }
+    .message-text {
+        font-size: 2.2rem;
+    }
+    .petal {
+        width: 55px; /* Pétalos más pequeños */
+        height: 55px;
+    }
+    .leaf {
+        width: 35px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .message-container {
+        padding: 15px 10px;
+    }
+    .message-text {
+        font-size: 1.8rem;
+    }
+    .question-text {
+        margin-top: 10px;
+        font-size: 0.8em;
+    }
+    .petal {
+        width: 45px; /* Pétalos aún más pequeños en teléfonos muy angostos */
+        height: 45px;
+    }
+}
